@@ -37,5 +37,6 @@ public class Finder {
         tile.put("X",8);
         tile.put("Y",4);
         tile.put("Z",10);
+        tile.put("?", 0);
     }
 }
