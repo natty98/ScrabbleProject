@@ -9,6 +9,8 @@ public class Finder {
     public static void Find(String letter, String availLetters){
         /*Check the words in the scrabble dictionary that have those words */
         /*Display both the words and their value */
+
+        // Contains the value associated with the tile which can then be used to calculate the score
         HashMap<String,Integer> tile = new HashMap<>();
 
         tile.put("A",1);
@@ -38,5 +40,7 @@ public class Finder {
         tile.put("Y",4);
         tile.put("Z",10);
         tile.put("?", 0);
+
+        
     }
 }
