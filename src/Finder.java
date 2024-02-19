@@ -5,10 +5,18 @@ public class Finder {
      * This method is used to find the possible words that the user could use and also display their values beside them
      * @param letter - repressents the letter the player wants to play against
      * @param availLetters - represents the letters available to the player(7)
+     * 
+     * returns a string that contains the 
      */
-    public static void Find(String letter, String availLetters){
+    public static String Find(String letter, String availLetters){
         /*Check the words in the scrabble dictionary that have those words */
         /*Display both the words and their value */
+        int value = 0;
+        String v = "";
+        String word = "";
+        //search what words have the available letters in them and select those
+        //return these words to the user
+        //the scrabble dictionary should have the words sorted by their different number of letters
 
         // Contains the value associated with the tile which can then be used to calculate the score
         HashMap<String,Integer> tile = new HashMap<>();
@@ -41,6 +49,10 @@ public class Finder {
         tile.put("Z",10);
         tile.put("?", 0);
 
-        
+        return "";
+    }
+
+    public static void main(String[] args){
+
     }
 }
