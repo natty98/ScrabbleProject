@@ -1,9 +1,13 @@
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
 import java.util.HashMap;
+import java.io.*;
+import java.util.Scanner;
 
 public class Finder {
     /**
      * This method is used to find the possible words that the user could use and also display their values beside them
-     * @param letter - repressents the letter the player wants to play against
+     * @param letter - represents the letter the player wants to play against
      * @param availLetters - represents the letters available to the player(7)
      * 
      * returns a string that contains the 
@@ -18,6 +22,11 @@ public class Finder {
         //return these words to the user
         //the scrabble dictionary should have the words sorted by their different number of letters
 
+
+        return "";
+    }
+
+    public int sum(String word){
         // Contains the value associated with the tile which can then be used to calculate the score
         HashMap<String,Integer> tile = new HashMap<>();
 
@@ -49,10 +58,47 @@ public class Finder {
         tile.put("Z",10);
         tile.put("?", 0);
 
-        return "";
+        int sum = 0;
+        int[] fullSum = new int[]{};
+        //parse through the word to calculate the sum value of the word
+
+        CharacterIterator it = new StringCharacterIterator(word);
+
+        // Iterate and print current character
+        while (it.current() != CharacterIterator.DONE) {
+            System.out.print(it.current() + " ");
+            //pull the value of the letter from the Hashmap
+            tile.get(it.current());
+            // Moving onto next element in the object
+            // using next() method
+            it.next();
+        }
+        return sum;
     }
 
-    public static void main(String[] args){
+    /**
+     * This method is used to traverse through the string
+     * @param str - the word that needs to be traversed through
+     */
+    static void traverseString(String str)
+    {
+        CharacterIterator it = new StringCharacterIterator(str);
 
+        // Iterate and print current character
+        while (it.current() != CharacterIterator.DONE) {
+            System.out.print(it.current() + " ");
+            // Moving onto next element in the object
+            // using next() method
+            it.next();
+        }
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("C:\\Users\\ogeh1\\Desktop\\words\\twoLetterWords.txt");
+        Scanner sc = new Scanner(file);
+
+        // we just need to use "," as delimiter
+        sc.useDelimiter(", ");
+        System.out.println(sc.next());
     }
 }
